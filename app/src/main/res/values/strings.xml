@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AlcoholDelivery</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tagline">Discover the best wines from over 1,000 Wine shops and fast delivery to your doorstep</string>
+    <string name="txt_no_account_signup">Don\'t have an account? <font color="#2196F3">Register Now</font></string>
+    <string name="txt_already_account">Already have an account? <font color="#2196F3">Sign In</font></string>
+    <string name="client_id">797916214600-fnvncjir7spvejt8oea94v2bf8mtrnl6.apps.googleusercontent.com</string>
+</resources>

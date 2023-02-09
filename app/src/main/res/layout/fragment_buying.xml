@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.BuyingFragment">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/light_brown"
+        app:icon="@drawable/left_arrow"
+        app:navigationIcon="@drawable/left_arrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:titleTextColor="@color/black"
+        app:navigationIconTint="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Place an Order" />
+
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar">
+
+        <EditText
+            android:id="@+id/txt_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/name_icon"
+            android:drawablePadding="8dp"
+            android:hint="Name"
+            android:inputType="textPersonName"
+
+            />
+
+        <EditText
+            android:id="@+id/txt_Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/address_icon"
+            android:drawablePadding="8dp"
+            android:hint="Address" />
+
+
+        <EditText
+            android:id="@+id/txt_City"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/city"
+            android:drawablePadding="8dp"
+            android:layout_marginBottom="16dp"
+            android:hint="City"
+            android:inputType="textShortMessage"
+            />
+        <EditText
+            android:id="@+id/txtState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="16dp"
+            android:drawablePadding="8dp"
+            android:inputType="textShortMessage"
+            android:hint="State"
+            />
+
+        <EditText
+            android:id="@+id/txtPincode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="16dp"
+            android:drawablePadding="8dp"
+            android:hint="Pincode"
+            android:inputType="phone"
+            />
+
+
+
+        <EditText
+            android:id="@+id/txt_Phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/call_icon"
+            android:drawablePadding="8dp"
+            android:hint="Phone"
+            android:inputType="phone"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/placeOrderBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place order"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.822" />
+
+    <TextView
+        android:id="@+id/textView9"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Order Details: "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:orientation="vertical"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/beerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuborg"
+            android:fontFamily="@font/roboto_medium"/>
+        <TextView
+            android:id="@+id/brewedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Brewed DAte: 25/2007" />
+        <TextView
+            android:id="@+id/pHValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pH: 8" />
+        <TextView
+            android:id="@+id/volumeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Volume: 250ml" />
+
+        <TextView
+            android:id="@+id/attenuationLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attenuation Level: 250ml" />
+
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

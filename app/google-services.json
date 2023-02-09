@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "797916214600",
+    "project_id": "alcoholdelivery-53312",
+    "storage_bucket": "alcoholdelivery-53312.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797916214600:android:e14e3f66016c66009bef7d",
+        "android_client_info": {
+          "package_name": "com.example.alcoholdelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797916214600-brk81g41s1i6eq0vpoi8hp6mp9c5suiq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTD3_bWaHt2fDGHaAon4imxKBqNUlBAd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "797916214600-brk81g41s1i6eq0vpoi8hp6mp9c5suiq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
