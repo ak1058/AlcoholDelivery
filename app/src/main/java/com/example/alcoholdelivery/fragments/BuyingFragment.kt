@@ -2,21 +2,14 @@ package com.example.alcoholdelivery.fragments
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
+import androidx.fragment.app.Fragment
 import com.example.alcoholdelivery.R
-import com.example.alcoholdelivery.adapters.PastOrderAdapter
 import com.example.alcoholdelivery.databinding.FragmentBuyingBinding
-import com.example.alcoholdelivery.db.CartDatabase
 import com.example.alcoholdelivery.db.PastOrdersDataBase
-import com.example.alcoholdelivery.listener.Listener
 import com.example.alcoholdelivery.models.BeerListModelItem
 import com.example.alcoholdelivery.sharedPreference.SavingDataPreference
 import com.google.gson.Gson
@@ -40,19 +33,17 @@ class BuyingFragment : Fragment() {
         savingDataPreference = SavingDataPreference(requireActivity())
         val pastOrderDatabase = PastOrdersDataBase.getDataBase(requireActivity())
 
+        //getting beer data stored in sharedprefernce
         val jsonBeerData = savingDataPreference.getBeerData()
         val beerData = Gson().fromJson(jsonBeerData, BeerListModelItem::class.java)
 
 
-
-
-
-
-
-
-
         setOrderData(beerData)
+
+
         binding.placeOrderBtn.setOnClickListener {
+
+            // checking all the input edit text field are empty or not
             if (!(TextUtils.isEmpty(binding.txtName.text.toString())
                         && TextUtils.isEmpty(binding.txtCity.text.toString())
                         && TextUtils.isEmpty(binding.txtAddress.text.toString())
@@ -62,9 +53,11 @@ class BuyingFragment : Fragment() {
 
                 Toast.makeText(requireActivity(), "Your order is Successfully Placed.", Toast.LENGTH_SHORT).show()
                 CoroutineScope(Dispatchers.IO).launch {
+                    //adding the orders to the past order database after successfully placing the order
                     pastOrderDatabase.beerDao().addOrder(beerData)
                 }
 
+                // after successfully placing order redirecting it to Home tab i.e, BeerList Fragment
                 val fragmentManager = activity?.supportFragmentManager
                 val fragmentTransaction = fragmentManager?.beginTransaction()
                 val newFragment = BeerListFragment()
@@ -76,6 +69,7 @@ class BuyingFragment : Fragment() {
             }
         }
 
+        //for back pressing
         binding.toolBar.setNavigationOnClickListener {
             val fragmentManager = requireActivity().supportFragmentManager
             fragmentManager.popBackStack()
@@ -85,6 +79,7 @@ class BuyingFragment : Fragment() {
         return binding.root
     }
 
+    //for setting the beer data to all the views
     private fun setOrderData(beerData: BeerListModelItem){
         binding.apply {
             beerName.text = beerData.name

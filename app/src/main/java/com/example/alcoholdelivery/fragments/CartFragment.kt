@@ -37,6 +37,7 @@ class CartFragment : Fragment(), com.example.alcoholdelivery.listener.Listener {
 
 
         CoroutineScope(Dispatchers.IO).launch {
+            //getting orderList from the roomdDb
             val orderList = cartDatabase.beerDao().getOrders()
             orderAdapter.submitList(orderList)
 
@@ -61,6 +62,8 @@ class CartFragment : Fragment(), com.example.alcoholdelivery.listener.Listener {
         return binding.root
     }
 
+    //setting listener if user click on any item sending it to the detail fragment a
+    //and saving that item into shared preference
     override fun onItemBtnClickListener(position: Int, beerListModelItem: BeerListModelItem) {
         savingDataPreference.saveBeerData(beerListModelItem)
 
@@ -72,6 +75,7 @@ class CartFragment : Fragment(), com.example.alcoholdelivery.listener.Listener {
         fragmentTransaction?.commit()
     }
 
+    //listener used to delete item in cart if someone click on delete icon
     override fun onItemDeleteClickListener(position: Int, beerListModelItem: BeerListModelItem) {
 
         CoroutineScope(Dispatchers.IO).launch {

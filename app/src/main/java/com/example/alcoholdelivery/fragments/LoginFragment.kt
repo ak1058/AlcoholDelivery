@@ -36,6 +36,7 @@ class LoginFragment : Fragment() {
         //initialising auth
         auth =  FirebaseAuth.getInstance()
 
+        //creating google signing option and google signing client used for google signin
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.client_id))
             .requestEmail()
@@ -50,9 +51,11 @@ class LoginFragment : Fragment() {
         }
         loginBinding.dontHaveAccountRegister.setOnClickListener {
 
+            //redirecting to signup fragment if dont have account
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
 
+        //googleSignin
         loginBinding.signInWithGoogleBtn.setOnClickListener {
             googleSignInClient.signOut()
             loginBinding.errorTextView.visibility = View.GONE
@@ -70,7 +73,9 @@ class LoginFragment : Fragment() {
         val email = loginBinding.txtEmail.editText?.text.toString()
         val password = loginBinding.txtPassword.editText?.text.toString()
 
+        //checking email and password
         if (email.isNotEmpty()&&password.isNotEmpty()){
+            //signing using firebase
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                 if (it.isSuccessful){
                     val intent = Intent(activity, MainActivity2::class.java)
@@ -90,6 +95,7 @@ class LoginFragment : Fragment() {
         }
     }
 
+    //signin with google
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 10 && resultCode == Activity.RESULT_OK){

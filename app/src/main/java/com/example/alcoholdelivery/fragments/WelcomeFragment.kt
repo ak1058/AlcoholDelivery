@@ -22,6 +22,7 @@ class WelcomeFragment : Fragment() {
         // Check if user is signed in (non-null) and update UI accordingly.
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
+        //if user is logged in he will be redirected to home fragment
         if(currentUser != null){
             val intent = Intent(activity, MainActivity2::class.java)
             startActivity(intent)

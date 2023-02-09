@@ -5,13 +5,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.alcoholdelivery.api.RetrofitHelper
 import com.example.alcoholdelivery.db.BeerDataBase
-import com.example.alcoholdelivery.models.BeerListModel
 import com.example.alcoholdelivery.models.BeerListModelItem
 import com.example.alcoholdelivery.utils.NetworkResult
-import com.google.gson.GsonBuilder
 import retrofit2.Response
 
-    class BeerRepository(val beerDataBase: BeerDataBase) {
+class BeerRepository(val beerDataBase: BeerDataBase) {
 
         private val beerMutableLiveData = MutableLiveData<NetworkResult<List<BeerListModelItem>>>()
         val beerLiveData: LiveData<NetworkResult<List<BeerListModelItem>>>

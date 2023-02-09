@@ -1,14 +1,13 @@
 package com.example.alcoholdelivery.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.alcoholdelivery.R
 import com.example.alcoholdelivery.adapters.PastOrderAdapter
-import com.example.alcoholdelivery.databinding.FragmentBeerDetailBinding
 import com.example.alcoholdelivery.databinding.FragmentOrderBinding
 import com.example.alcoholdelivery.db.PastOrdersDataBase
 import com.example.alcoholdelivery.listener.Listener
@@ -39,6 +38,7 @@ class OrderFragment : Fragment(),Listener {
         pastOrderAdapter = PastOrderAdapter(requireActivity(), this)
 
         CoroutineScope(Dispatchers.IO).launch{
+            //getting past order list from past order database
             val pastOrderList = pastOrderDatabase.beerDao().getOrders()
             pastOrderAdapter.submitList(pastOrderList)
         }
@@ -60,6 +60,7 @@ class OrderFragment : Fragment(),Listener {
     override fun onItemBtnClickListener(position: Int, beerListModelItem: BeerListModelItem) {
         savingDataPreference.saveBeerData(beerListModelItem)
 
+        // if any user click on any order he will redirected to that order detail
         val fragmentManager = activity?.supportFragmentManager
         val fragmentTransaction = fragmentManager?.beginTransaction()
         val newFragment = BeerDetailFragment()

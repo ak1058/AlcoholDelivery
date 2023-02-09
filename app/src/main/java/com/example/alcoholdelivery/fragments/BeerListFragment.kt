@@ -7,16 +7,15 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.alcoholdelivery.listener.Listener
 import com.example.alcoholdelivery.MainActivity2
 import com.example.alcoholdelivery.R
 import com.example.alcoholdelivery.databinding.FragmentBeerListBinding
+import com.example.alcoholdelivery.listener.Listener
 import com.example.alcoholdelivery.models.BeerListModelItem
 import com.example.alcoholdelivery.pagination.BeerPagingAdapter
 import com.example.alcoholdelivery.sharedPreference.SavingDataPreference
@@ -47,14 +46,7 @@ class BeerListFragment : Fragment(), Listener {
         beerAdapter = BeerPagingAdapter(requireContext(), this)
 
 
-
-
-
-
-
-
-        Log.d("ss",beerViewModel.beerList.toString())
-
+        //setting recycler view
         binding.beerRecyclerView.apply {
             val linearLayoutManager = LinearLayoutManager(activity?.applicationContext)
             linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
@@ -71,6 +63,7 @@ class BeerListFragment : Fragment(), Listener {
         return binding.root
     }
 
+    //listener that is used to handle click when someone click on an item in the recycler view
     override fun onItemBtnClickListener(position: Int, beerListModelItem: BeerListModelItem) {
 
         savingDataPreference.saveBeerData(beerListModelItem)
@@ -91,13 +84,14 @@ class BeerListFragment : Fragment(), Listener {
 
 
 
+    // a broadcastreciever used for checkin internet connection regularly
     private val networkChangeReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
             val isConnected: Boolean = activeNetwork?.isConnected == true
             if (isConnected) {
-                // internet connected, do something
+                // internet connected, it will fetch the list, otherwise
                 binding.noInternetImg.visibility = View.GONE
                 CoroutineScope(Dispatchers.IO).launch{
                     beerViewModel.beerList.collect {
@@ -108,7 +102,7 @@ class BeerListFragment : Fragment(), Listener {
                 }
 
             } else {
-                // internet not connected
+                // internet not connected, it will just show a no internet connected image
                 binding.noInternetImg.visibility = View.VISIBLE
                 binding.beerRecyclerView.visibility = View.GONE
             }

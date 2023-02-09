@@ -3,8 +3,6 @@ package com.example.alcoholdelivery.pagination
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.alcoholdelivery.db.BeerDataBase
-import com.example.alcoholdelivery.models.BeerListModel
 import com.example.alcoholdelivery.models.BeerListModelItem
 import com.example.alcoholdelivery.repository.BeerRepository
 import com.google.gson.GsonBuilder

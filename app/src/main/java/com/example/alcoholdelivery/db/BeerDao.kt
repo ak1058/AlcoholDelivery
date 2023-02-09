@@ -1,6 +1,5 @@
 package com.example.alcoholdelivery.db
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.alcoholdelivery.models.BeerListModelItem
 

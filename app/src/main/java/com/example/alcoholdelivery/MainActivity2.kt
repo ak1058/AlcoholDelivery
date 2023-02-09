@@ -1,19 +1,15 @@
 package com.example.alcoholdelivery
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
-import androidx.sqlite.db.SimpleSQLiteQuery
 import com.example.alcoholdelivery.databinding.ActivityMain2Binding
-import com.example.alcoholdelivery.db.BeerDataBase
 import com.example.alcoholdelivery.db.CartDatabase
 import com.example.alcoholdelivery.fragments.AccountFragment
 import com.example.alcoholdelivery.fragments.BeerListFragment
 import com.example.alcoholdelivery.fragments.CartFragment
 import com.example.alcoholdelivery.fragments.OrderFragment
-import com.example.alcoholdelivery.repository.BeerRepository
 import com.example.alcoholdelivery.utils.BeerApplicationCLass
 import com.example.alcoholdelivery.viewModels.BeerViewModel
 import com.example.alcoholdelivery.viewModels.BeerViewModelFactory
