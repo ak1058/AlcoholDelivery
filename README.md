@@ -3,7 +3,7 @@
 
 
 
-Alcohol Delivery is an app which is fetching list of beers from https://punkapi.com/ Punk Api
+Alcohol Delivery is an Android app which is fetching list of beers from https://punkapi.com/ Punk Api
 and showing it on the dashboard and you can order one of the beer for yourself.
 
 
