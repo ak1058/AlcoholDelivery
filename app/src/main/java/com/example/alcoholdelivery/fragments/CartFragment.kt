@@ -69,7 +69,7 @@ class CartFragment : Fragment(), com.example.alcoholdelivery.listener.Listener {
 
         val fragmentManager = activity?.supportFragmentManager
         val fragmentTransaction = fragmentManager?.beginTransaction()
-        val newFragment = BeerDetailFragment()
+        val newFragment = BuyingFragment()
         fragmentTransaction?.replace(R.id.frame_layout, newFragment)
         fragmentTransaction?.addToBackStack(null)
         fragmentTransaction?.commit()
